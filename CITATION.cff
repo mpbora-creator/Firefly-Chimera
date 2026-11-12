@@ -19,7 +19,7 @@ keywords:
   - firefly synchronization
   - heterogeneous delayed coupling
   - relaxation oscillators
-repository-code: "REPLACE_WITH_GITHUB_REPOSITORY_URL"
+repository-code: "https://github.com/mpbora-creator/Firefly-Chimera"
 abstract: >-
   Julia source code, numerical experiments, validation routines, and figure
   data accompanying the article "Chimera states in a network of firefly
