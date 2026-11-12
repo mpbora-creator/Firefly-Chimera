@@ -1,0 +1,12 @@
+# Panel 14: persistent role counts
+#
+# Suggested Gnuplot command(s):
+# set style data histograms
+# set style fill solid
+# set xlabel 'oscillator role'; set ylabel 'count'
+# plot 'panel_14_persistent_role_counts.dat' using 2:xtic(1) title 'count'
+#
+# columns: role count
+chorus 20
+switcher 29
+character 51

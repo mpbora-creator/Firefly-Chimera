@@ -1,0 +1,2 @@
+correlation,rmse,numerical_character_fraction,reduced_character_fraction,dominant_period,mean_temporal_std,max_temporal_std,diffusion
+0.9906243263855462,0.6969198361084106,0.56,0.0,NaN,0.0009381036280203433,0.0013280773263897871,0.0

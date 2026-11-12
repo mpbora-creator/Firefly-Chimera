@@ -1,0 +1,22 @@
+# Panel 02 overlay: detected chorus peaks
+#
+# Suggested Gnuplot command(s):
+# plot 'panel_02_chorus_peaks.dat' using 1:2 with points pt 7 ps 1.2 title 'chorus peaks'
+#
+# columns: time peak_flash_count
+262.125 17
+278.875 23
+296.125 23
+313.125 28
+330.125 40
+347.125 36
+364.125 34
+381.125 30
+398.125 24
+415.375 19
+432.375 29
+449.375 27
+466.625 22
+483.625 28
+500.625 31
+518.125 26

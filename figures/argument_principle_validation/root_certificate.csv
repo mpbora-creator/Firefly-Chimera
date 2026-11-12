@@ -1,0 +1,2 @@
+unstable_roots,certified,reason,real_left,real_right,imag_max,min_logabs,stationary_residual,stationary_converged
+missing,false,contour_too_close_to_root,0.0001,1.0,20.0,-151.34584909067627,1.241978742072547e-12,true

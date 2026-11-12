@@ -1,0 +1,312 @@
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{tcolorbox}
+\usepackage{listings}
+\usepackage{setspace}
+
+\definecolor{TitleBlue}{HTML}{163B65}
+\definecolor{AccentOrange}{HTML}{C96A28}
+\definecolor{SoftBlue}{HTML}{EAF2FB}
+\definecolor{SoftGray}{HTML}{F4F6F8}
+\definecolor{CodeBg}{HTML}{F7F7F7}
+\definecolor{CodeFrame}{HTML}{D9D9D9}
+\definecolor{LinkBlue}{HTML}{0B5CAD}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=TitleBlue,
+    urlcolor=LinkBlue,
+    citecolor=AccentOrange,
+    pdftitle={SarfatiPelegChimera Windows Julia Guide},
+    pdfauthor={Codex}
+}
+
+\lstdefinestyle{wincli}{
+    backgroundcolor=\color{CodeBg},
+    frame=single,
+    rulecolor=\color{CodeFrame},
+    basicstyle=\ttfamily\small,
+    breaklines=true,
+    columns=fullflexible,
+    keepspaces=true,
+    showstringspaces=false
+}
+
+\newtcolorbox{infobox}{
+    colback=SoftBlue,
+    colframe=TitleBlue,
+    boxrule=0.8pt,
+    arc=2pt
+}
+
+\newtcolorbox{warnbox}{
+    colback=SoftGray,
+    colframe=AccentOrange,
+    boxrule=0.8pt,
+    arc=2pt
+}
+
+\titleformat{\section}{\Large\bfseries\color{TitleBlue}}{\thesection}{0.75em}{}
+\titleformat{\subsection}{\large\bfseries\color{AccentOrange}}{\thesubsection}{0.75em}{}
+
+\setstretch{1.08}
+
+\title{\textbf{\color{TitleBlue}SarfatiPelegChimera}\\[0.3em]
+\large Julia Code Guide for Windows}
+\author{Codex}
+\date{August 2026}
+
+\begin{document}
+\maketitle
+\tableofcontents
+\bigskip
+
+\section{Purpose of This Guide}
+This document explains how to run the Julia-based codes in the
+\texttt{SarfatiPelegChimera} package on a Windows machine. It is written for the
+current Julia workflow only. It does not describe the Python, C++, or Mac-specific
+parts of the broader Chimera workspace.
+
+\begin{infobox}
+The intended use of this package is to screen, validate, and compare delayed or
+effective-coupling mechanisms that may generate two-group phase organization
+resembling the Sarfati--Peleg-type phenomenology.
+\end{infobox}
+
+\section{What Is in the Package}
+The package contains Julia scripts for:
+\begin{itemize}[leftmargin=1.5em]
+    \item coarse scans over parameter ranges,
+    \item focused follow-up scans near promising regions,
+    \item validation runs for top candidates,
+    \item summary figure generation,
+    \item CSV export of ranked parameter sets and diagnostics.
+\end{itemize}
+
+Typical outputs include:
+\begin{itemize}[leftmargin=1.5em]
+    \item \texttt{.csv} tables of scan results,
+    \item summary \texttt{.png} figures,
+    \item top-case diagnostic \texttt{.png} plots,
+    \item validation summary \texttt{.png} plots.
+\end{itemize}
+
+\section{Windows Requirements}
+You should have the following installed:
+\begin{itemize}[leftmargin=1.5em]
+    \item Julia 1.10 or newer,
+    \item Visual Studio Code,
+    \item the Julia extension for VS Code,
+    \item a normal internet connection for the first package installation.
+\end{itemize}
+
+\subsection{Recommended Julia Packages}
+Most scripts in this package rely on packages such as:
+\begin{itemize}[leftmargin=1.5em]
+    \item \texttt{DifferentialEquations}
+    \item \texttt{CSV}
+    \item \texttt{DataFrames}
+    \item \texttt{Plots}
+    \item \texttt{FFTW}
+\end{itemize}
+
+\section{Opening the Project in VS Code}
+\begin{enumerate}[leftmargin=1.5em]
+    \item Open VS Code.
+    \item Choose \texttt{File > Open Folder}.
+    \item Select the folder \texttt{SarfatiPelegChimera}.
+    \item Open a terminal inside VS Code.
+\end{enumerate}
+
+\begin{warnbox}
+All commands below should be run from the package folder itself, not from a parent
+directory unless you explicitly pass the correct full path.
+\end{warnbox}
+
+\section{Preparing the Julia Environment}
+Open a terminal in VS Code and run:
+
+\begin{lstlisting}[style=wincli]
+julia --project=.
+\end{lstlisting}
+
+Then, inside the Julia prompt, run:
+
+\begin{lstlisting}[style=wincli]
+using Pkg
+Pkg.activate(".")
+Pkg.instantiate()
+\end{lstlisting}
+
+If some packages are still missing, run:
+
+\begin{lstlisting}[style=wincli]
+using Pkg
+Pkg.add("DifferentialEquations")
+Pkg.add("CSV")
+Pkg.add("DataFrames")
+Pkg.add("Plots")
+Pkg.add("FFTW")
+\end{lstlisting}
+
+\section{Running Julia Scripts}
+To run a Julia script from the Windows terminal:
+
+\begin{lstlisting}[style=wincli]
+julia --project=. script_name.jl
+\end{lstlisting}
+
+Examples:
+
+\begin{lstlisting}[style=wincli]
+julia --project=. sarfati_peleg_stage2_julia.jl
+julia --project=. sarfati_peleg_distributed_delay_search.jl
+julia --project=. sarfati_peleg_pulse_coupled_search.jl
+\end{lstlisting}
+
+\subsection{Running a Validation Script}
+If a script is intended to validate top candidates from an earlier CSV result,
+run the screening script first and then run the validation script second.
+
+\section{Using Multiple CPU Threads on Windows}
+For faster scans, Julia can use multiple CPU threads.
+
+\subsection{PowerShell}
+\begin{lstlisting}[style=wincli]
+$env:JULIA_NUM_THREADS="8"
+julia --project=. script_name.jl
+\end{lstlisting}
+
+\subsection{Command Prompt}
+\begin{lstlisting}[style=wincli]
+set JULIA_NUM_THREADS=8
+julia --project=. script_name.jl
+\end{lstlisting}
+
+\begin{infobox}
+If your machine has more or fewer CPU cores, replace \texttt{8} with a suitable
+number. In many cases, using all physical CPU cores gives a good speedup.
+\end{infobox}
+
+\section{Typical Workflow}
+A practical workflow is:
+\begin{enumerate}[leftmargin=1.5em]
+    \item run a coarse scan,
+    \item inspect the summary \texttt{.png} and top-ranked CSV entries,
+    \item run the corresponding focused or validation script,
+    \item inspect the top-case diagnostic plots,
+    \item compare one-cluster and two-cluster indicators,
+    \item refine the parameter window if necessary.
+\end{enumerate}
+
+\section{How to Read the Results}
+Many of the scripts produce a mixture of:
+\begin{itemize}[leftmargin=1.5em]
+    \item score histograms,
+    \item scatter plots of persistence versus antiphase error,
+    \item heat maps of best score by parameter pair,
+    \item detailed top-case diagnostics.
+\end{itemize}
+
+\subsection{Common Diagnostic Quantities}
+Typical quantities used in the package include:
+\begin{itemize}[leftmargin=1.5em]
+    \item a one-cluster order parameter,
+    \item a two-cluster order parameter,
+    \item a group phase difference,
+    \item a persistence score,
+    \item an antiphase error,
+    \item a final wrapped-phase snapshot,
+    \item a late-time correlation matrix.
+\end{itemize}
+
+\section{Expected Output Files}
+Depending on the script, you should expect outputs such as:
+\begin{longtable}{>{\ttfamily}p{0.42\textwidth} p{0.5\textwidth}}
+\toprule
+File type & Meaning \\
+\midrule
+\textnormal{\texttt{*.csv}} & tabulated scan results and ranked parameter sets \\
+\textnormal{\texttt{*_summary.png}} & overall summary plots for a scan \\
+\textnormal{\texttt{*_top\_case\_NN.png}} & detailed diagnostics for high-ranking candidates \\
+\textnormal{\texttt{*_top\_validation\_summary.png}} & summary of a validation stage \\
+\bottomrule
+\end{longtable}
+
+\section{Troubleshooting}
+\subsection{Package Not Found}
+If Julia says a package is not found:
+\begin{lstlisting}[style=wincli]
+using Pkg
+Pkg.activate(".")
+Pkg.instantiate()
+\end{lstlisting}
+
+\subsection{Wrong Working Directory}
+If scripts cannot find files, check that the terminal is opened in the
+\texttt{SarfatiPelegChimera} folder before running them.
+
+\subsection{Plots Not Appearing}
+If plots are not displayed in the interactive window, they are often still saved
+to disk as \texttt{.png} files. Check the folder contents after the run finishes.
+
+\subsection{Long First Run}
+The very first run may take noticeably longer because Julia is compiling packages.
+Later runs are usually faster.
+
+\section{Minimal Example Session}
+\subsection{Step 1: Open Terminal in VS Code}
+\begin{lstlisting}[style=wincli]
+cd C:\path\to\SarfatiPelegChimera
+\end{lstlisting}
+
+\subsection{Step 2: Activate Environment}
+\begin{lstlisting}[style=wincli]
+julia --project=.
+\end{lstlisting}
+
+Then:
+\begin{lstlisting}[style=wincli]
+using Pkg
+Pkg.activate(".")
+Pkg.instantiate()
+\end{lstlisting}
+
+\subsection{Step 3: Run a Script}
+\begin{lstlisting}[style=wincli]
+julia --project=. sarfati_peleg_stage2_julia.jl
+\end{lstlisting}
+
+\subsection{Step 4: Inspect Output}
+Look for generated CSV and PNG files in the package directory.
+
+\section{Recommended Practice}
+\begin{itemize}[leftmargin=1.5em]
+    \item Keep the package folder structure unchanged.
+    \item Run the coarse scan before any top-validation script.
+    \item Keep notes of which script produced which result file.
+    \item Use threads for broader scans.
+    \item Re-run top candidates with a validation script rather than trusting the first screen alone.
+\end{itemize}
+
+\section{Final Note}
+This guide is intended to be a stable Windows reference for the Julia part of the
+\texttt{SarfatiPelegChimera} workflow. If the scripts evolve, the exact file names
+may change, but the overall run pattern remains:
+\[
+\text{screen} \;\to\; \text{rank} \;\to\; \text{validate} \;\to\; \text{inspect}.
+\]
+
+\end{document}

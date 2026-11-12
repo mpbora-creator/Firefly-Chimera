@@ -1,0 +1,25 @@
+# Panel 15: diagnostics summary
+# This is a text-only diagnostics panel.
+# Suggested Gnuplot usage: use set label commands manually, or inspect as text.
+#
+# Sarfati-Peleg similarity score = 4.6777
+# P=9, κ=0.0485, τ0=1.1850, στ=0.0600
+# target chorus = 0.65 ± 0.15
+# chorus fraction = 0.300, chorus score = 0.066
+# freq score = 0.943, d_i score = 0.692
+# chorus flashes = 480, character flashes = 1120
+# character delay median/span = 0.6500 / 2.0000
+# stable delayed oscillators = 15
+# mean |d_i| / std(d_i) = 0.6749 / 0.1543
+# mean stable run length = 14.07 cycles
+# p_i mean/std = 0.662 / 0.319
+# role counts: chorus=6, switcher=41, character=53
+# role switches: mean=2.80, max=6, mean lifetime=6.56 cycles
+# R1=0.900, R2=0.963
+# Z mean/std = 0.902 / 0.192
+# delay σ mean/std = 0.300 / 0.060
+# delay cov mean/std = 0.073 / 0.028
+# C(r): C0=0.094, C1=0.091, C(P)=0.087
+# freq mean/std/CV = 0.3807 / 0.0046 / 0.01197
+# Interpretation: p_i≈0 persistent chorus; p_i≈1 persistent character;
+# intermediate p_i indicates switching between roles.

@@ -1,0 +1,18 @@
+.DS_Store
+*.aux
+*.blg
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.synctex.gz
+*.toc
+*.tmp
+jl_*
+
+# Local search/checkpoint products can be large and machine-specific.
+results/natural_chimera_results_live.csv
+results/*checkpoint*
+
+# Preserve the manuscript result files and all deposited figure data.
+!results/natural_chimera_best_so_far.txt

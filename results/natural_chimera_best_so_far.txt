@@ -1,0 +1,21 @@
+Best Sarfati–Peleg similarity case so far
+score = 6.04088880
+P = 9
+kappa = 0.04850000
+tau0 = 1.18500000
+sigtau = 0.06200000
+ell = 12.00000000
+delay_seed = 29
+init_seed = 202
+chorus_fraction = 0.57250000
+char_count = 684
+freq_cv = 0.011963177
+
+Score components
+chorus_score = 0.87505178
+common_freq_score = 0.94325809
+delay_persistence_score = 0.64216720
+nonzero_delay_score = 0.50000000
+di_track_score = 0.58459768
+local_mixture_score = 0.91054806
+char_activity_score = 1.00000000

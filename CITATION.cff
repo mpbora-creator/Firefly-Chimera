@@ -1,0 +1,26 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite the associated article and this archived software release."
+title: "Code for Chimera states in a network of firefly oscillators"
+type: software
+version: 1.0.0
+date-released: 2026-11-12
+license: MIT
+authors:
+  - family-names: Das
+    given-names: Deeptarag
+  - family-names: Saikia
+    given-names: Debashis
+  - family-names: Bora
+    given-names: Kalpana
+  - family-names: Bora
+    given-names: Madhurjya P.
+keywords:
+  - chimera states
+  - firefly synchronization
+  - heterogeneous delayed coupling
+  - relaxation oscillators
+repository-code: "REPLACE_WITH_GITHUB_REPOSITORY_URL"
+abstract: >-
+  Julia source code, numerical experiments, validation routines, and figure
+  data accompanying the article "Chimera states in a network of firefly
+  oscillators".

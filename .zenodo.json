@@ -1,0 +1,19 @@
+{
+  "title": "Code for Chimera states in a network of firefly oscillators",
+  "description": "Julia source code, numerical experiments, validation routines, and figure data accompanying the article Chimera states in a network of firefly oscillators.",
+  "license": "MIT",
+  "upload_type": "software",
+  "access_right": "open",
+  "creators": [
+    {"name": "Das, Deeptarag"},
+    {"name": "Saikia, Debashis"},
+    {"name": "Bora, Kalpana"},
+    {"name": "Bora, Madhurjya P."}
+  ],
+  "keywords": [
+    "chimera states",
+    "firefly synchronization",
+    "heterogeneous delayed coupling",
+    "relaxation oscillators"
+  ]
+}

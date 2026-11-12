@@ -1,0 +1,52 @@
+/Users/mpbora/Work/Chimera/SarfatiPelegChimera/Manifest.toml
+/Users/mpbora/Work/Chimera/SarfatiPelegChimera/Project.toml
+/Users/mpbora/Work/Chimera/SarfatiPelegChimera/README.md
+/Users/mpbora/Work/Chimera/SarfatiPelegChimera/scripts/analytical_validation.jl
+/Users/mpbora/Work/Chimera/SarfatiPelegChimera/scripts/argument_principle_validation.jl
+/Users/mpbora/Work/Chimera/SarfatiPelegChimera/scripts/distributed_delay_validation.jl
+/Users/mpbora/Work/Chimera/SarfatiPelegChimera/scripts/heterogeneous_state_validation.jl
+/Users/mpbora/Work/Chimera/SarfatiPelegChimera/scripts/model_validation.jl
+/Users/mpbora/Work/Chimera/SarfatiPelegChimera/scripts/paper.jl
+/Users/mpbora/Work/Chimera/SarfatiPelegChimera/scripts/persistent_character_delay_figure.jl
+/Users/mpbora/Work/Chimera/SarfatiPelegChimera/scripts/reduction_robustness_validation.jl
+/Users/mpbora/Work/Chimera/SarfatiPelegChimera/scripts/revised_analytical_validation.jl
+/Users/mpbora/Work/Chimera/SarfatiPelegChimera/scripts/robustness.jl
+/Users/mpbora/Work/Chimera/SarfatiPelegChimera/scripts/search.jl
+/Users/mpbora/Work/Chimera/SarfatiPelegChimera/scripts/settle_kick_attractor_figure.jl
+/Users/mpbora/Work/Chimera/SarfatiPelegChimera/scripts/time_dependent_reduced_validation.jl
+/Users/mpbora/Work/Chimera/SarfatiPelegChimera/scripts/two_field_basin_boundary_validation.jl
+/Users/mpbora/Work/Chimera/SarfatiPelegChimera/scripts/two_field_memory_validation.jl
+/Users/mpbora/Work/Chimera/SarfatiPelegChimera/src copy/Config.jl
+/Users/mpbora/Work/Chimera/SarfatiPelegChimera/src copy/Coupling.jl
+/Users/mpbora/Work/Chimera/SarfatiPelegChimera/src copy/Diagnostics.jl
+/Users/mpbora/Work/Chimera/SarfatiPelegChimera/src copy/LimitCycle.jl
+/Users/mpbora/Work/Chimera/SarfatiPelegChimera/src copy/LoggingResume.jl
+/Users/mpbora/Work/Chimera/SarfatiPelegChimera/src copy/Main.jl
+/Users/mpbora/Work/Chimera/SarfatiPelegChimera/src copy/PaperFigures.jl
+/Users/mpbora/Work/Chimera/SarfatiPelegChimera/src copy/Plotting.jl
+/Users/mpbora/Work/Chimera/SarfatiPelegChimera/src copy/Robustness.jl
+/Users/mpbora/Work/Chimera/SarfatiPelegChimera/src copy/SarfatiPelegChimera.jl
+/Users/mpbora/Work/Chimera/SarfatiPelegChimera/src copy/Simulation.jl
+/Users/mpbora/Work/Chimera/SarfatiPelegChimera/src copy/Utilities.jl
+/Users/mpbora/Work/Chimera/SarfatiPelegChimera/src/AnalyticalValidation.jl
+/Users/mpbora/Work/Chimera/SarfatiPelegChimera/src/ArgumentPrincipleValidation.jl
+/Users/mpbora/Work/Chimera/SarfatiPelegChimera/src/Config.jl
+/Users/mpbora/Work/Chimera/SarfatiPelegChimera/src/Coupling.jl
+/Users/mpbora/Work/Chimera/SarfatiPelegChimera/src/Diagnostics.jl
+/Users/mpbora/Work/Chimera/SarfatiPelegChimera/src/DistributedDelayValidation.jl
+/Users/mpbora/Work/Chimera/SarfatiPelegChimera/src/HeterogeneousStateValidation.jl
+/Users/mpbora/Work/Chimera/SarfatiPelegChimera/src/LimitCycle.jl
+/Users/mpbora/Work/Chimera/SarfatiPelegChimera/src/LoggingResume.jl
+/Users/mpbora/Work/Chimera/SarfatiPelegChimera/src/Main.jl
+/Users/mpbora/Work/Chimera/SarfatiPelegChimera/src/ModelValidation.jl
+/Users/mpbora/Work/Chimera/SarfatiPelegChimera/src/PaperFigures.jl
+/Users/mpbora/Work/Chimera/SarfatiPelegChimera/src/Plotting.jl
+/Users/mpbora/Work/Chimera/SarfatiPelegChimera/src/ReductionRobustnessValidation.jl
+/Users/mpbora/Work/Chimera/SarfatiPelegChimera/src/RevisedAnalyticalValidation.jl
+/Users/mpbora/Work/Chimera/SarfatiPelegChimera/src/Robustness.jl
+/Users/mpbora/Work/Chimera/SarfatiPelegChimera/src/SarfatiPelegChimera.jl
+/Users/mpbora/Work/Chimera/SarfatiPelegChimera/src/Simulation.jl
+/Users/mpbora/Work/Chimera/SarfatiPelegChimera/src/TimeDependentReducedValidation.jl
+/Users/mpbora/Work/Chimera/SarfatiPelegChimera/src/TwoFieldBasinBoundaryValidation.jl
+/Users/mpbora/Work/Chimera/SarfatiPelegChimera/src/TwoFieldMemoryModelValidation.jl
+/Users/mpbora/Work/Chimera/SarfatiPelegChimera/src/Utilities.jl

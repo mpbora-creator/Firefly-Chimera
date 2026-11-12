@@ -1,0 +1,3 @@
+analytical_q_boundary=0.8878815052346597
+numerical_q50=NaN
+difference=NaN
