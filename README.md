@@ -126,3 +126,4 @@ Before publication, cite the archived Zenodo release using the metadata in
 The source code is released under the [MIT License](LICENSE). Deposited article
 text, figures, and third-party material may be subject to their own publication
 terms.
+# Firefly-Chimera
