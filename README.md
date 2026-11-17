@@ -84,6 +84,21 @@ CHIMERA_QUICK=1 julia --project=. scripts/reduction_robustness_validation.jl
 CHIMERA_QUICK=1 julia --project=. scripts/time_dependent_reduced_validation.jl
 ```
 
+Generate the local role-switching robustness data and the virtual firefly
+time-lapse used to visualize the SP-like chorus--character dynamics:
+
+```bash
+julia --project=. scripts/make_role_switching_phase_map.jl
+julia --project=. scripts/make_virtual_firefly_swarm_animation.jl
+```
+
+The robustness workflow holds the non-scanned quantities at the representative
+case values and records the switching fraction
+`f_sw = switching_oscillator_count / N` over the `(kappa, tau0)` grid. The
+animation uses the same representative simulation, reconstructs flashes with
+the deposited detection rule, and colours oscillators continuously from chorus
+to character according to their measured character probability.
+
 `CHIMERA_QUICK=1` performs a reduced validation intended for checking the
 workflow. Omit it for the full research calculation.
 

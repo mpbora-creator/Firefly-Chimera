@@ -1,0 +1,52 @@
+\documentclass{standalone}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepgfplotslibrary{colormaps}
+
+\begin{document}
+\Large
+\begin{tikzpicture}
+  \begin{axis}[
+    width=11.8cm,
+    height=8.4cm,
+    %title={Role-switching persistence in parameter space},
+    xlabel={$\kappa$},
+    ylabel={$\tau_0$},
+    xmin=0.04795,
+    xmax=0.04905,
+    ymin=1.1745,
+    ymax=1.1905,
+    xtick={0.0480,0.0482,0.0484,0.0486,0.0488,0.0490},
+    ytick={1.175,1.178,1.181,1.184,1.187,1.190},
+    scaled x ticks=false,
+    xticklabel style={/pgf/number format/fixed,/pgf/number format/precision=4},
+    yticklabel style={/pgf/number format/fixed,/pgf/number format/precision=3},
+    tick align=outside,
+    enlargelimits=false,
+    axis on top,
+    colormap/viridis,
+    colorbar,
+    point meta min=0,
+    point meta max=1,
+    colorbar style={
+      ylabel={Switching fraction, $f_{\mathrm{sw}}$},
+      ytick={0,0.2,0.4,0.6,0.8,1.0},
+      yticklabel style={/pgf/number format/fixed,/pgf/number format/precision=1}
+    },
+  ]
+    \addplot[
+      matrix plot*,
+      mesh/cols=11,
+      point meta=explicit,
+    ] table[
+      x=kappa,
+      y=tau0,
+      meta=switching_fraction,
+    ] {role_switching_phase_map.dat};
+
+    % Representative Fig. 10 parameter pair.
+    \addplot[only marks, mark=o, mark size=3pt,
+      very thick, white] coordinates {(0.0485,1.185)};
+  \end{axis}
+\end{tikzpicture}
+\end{document}
