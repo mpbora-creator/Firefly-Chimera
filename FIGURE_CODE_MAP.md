@@ -11,7 +11,7 @@ computational results in *Chimera states in a network of firefly oscillators*.
 | Delay covariance map and spatial covariance | `scripts/paper.jl` | `panel_19_delay_covariance_matrix.dat` and `panel_20_delay_covariance_vs_distance.dat` in the same directory |
 | Role raster and character probability | `scripts/paper.jl` | `panel_13_role_raster.dat`, `panel_11_character_probability.dat`, and `panel_16_role_switch_count.dat` |
 | Local robustness of the role-switching fraction in the $(\kappa,\tau_0)$ plane | `julia --project=. scripts/make_role_switching_phase_map.jl` | `figures/role_switching_robustness/role_switching_phase_map.dat` and `robust-check.pdf` |
-| Virtual time-lapse of SP-like chorus and character flashes | `julia --project=. scripts/make_virtual_firefly_swarm_animation.jl` | `figures/virtual_firefly_swarm/virtual_sp_firefly_swarm.gif` and `.mp4` |
+| Topology-preserving time-lapse of SP-like chorus and character flashes | `FIREFLY_LAYOUT=periodic_strip julia --project=. scripts/make_virtual_firefly_swarm_animation.jl` | `figures/virtual_firefly_swarm/periodic_strip_sp_firefly_swarm.gif` and `.mp4` |
 | Settle-kick attractor test | `julia --project=. scripts/settle_kick_attractor_figure.jl` | `figures/settle_kick_attractor/` |
 | Exact published-case numerical check | `julia --project=. scripts/validate_exact_case.jl` | Console pass/fail report; expected values are recorded in `REPRODUCIBILITY_NOTES.md` |
 | Event-resolved reduced-model identification | `julia --project=. scripts/model_validation.jl` | `figures/model_validation/` |

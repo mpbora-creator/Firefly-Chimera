@@ -15,6 +15,7 @@ const TSTART = 260.0
 const TSTOP = 330.0
 const FPS = 3
 const POSITION_SEED = 20261117
+const LAYOUT_MODE = Symbol(get(ENV, "FIREFLY_LAYOUT", "random_field"))
 
 mkpath(OUTDIR)
 
@@ -63,10 +64,10 @@ chorus_times = chorus_peak_data[
 # Reproducible virtual field: broad horizontal distribution, depth-dependent size,
 # and small individual drift resembling freely moving fireflies.
 Random.seed!(POSITION_SEED)
-x0 = 4 .+ 92 .* rand(N)
+x0 = LAYOUT_MODE == :periodic_strip ? collect(1.0:N) : 4 .+ 92 .* rand(N)
 y0 = 8 .+ 78 .* rand(N)
 depth = 0.65 .+ 0.65 .* (1 .- y0 ./ 100) .+ 0.18 .* rand(N)
-drift_ax = 0.35 .+ 1.25 .* rand(N)
+drift_ax = LAYOUT_MODE == :periodic_strip ? 0.03 .+ 0.07 .* rand(N) : 0.35 .+ 1.25 .* rand(N)
 drift_ay = 0.20 .+ 0.75 .* rand(N)
 drift_rate = 0.012 .+ 0.020 .* rand(N)
 drift_phase_x = 2pi .* rand(N)
@@ -110,9 +111,15 @@ anim = @animate for k in frame_indices
     strong = findall(b .> 0.50)
 
     p = plot(; xlims=(0, 100), ylims=(0, 100), size=(1000, 650),
-        axis=false, legend=false, background_color=RGB(0.008, 0.015, 0.055),
+        showaxis=LAYOUT_MODE == :periodic_strip ? :x : false,
+        xticks=LAYOUT_MODE == :periodic_strip ? ([1, 25, 50, 75, 100], ["1", "25", "50", "75", "100"]) : :none,
+        yticks=false,
+        xlabel=LAYOUT_MODE == :periodic_strip ? "oscillator index i   (periodic boundary: 100 <-> 1)" : "",
+        legend=false, background_color=RGB(0.008, 0.015, 0.055),
         foreground_color=:white, aspect_ratio=:equal,
-        title="A virtual SP-like firefly swarm",
+        title=LAYOUT_MODE == :periodic_strip ?
+            "SP-like firefly swarm on a periodic oscillator ring" :
+            "A virtual SP-like firefly swarm",
         titlefontcolor=RGB(0.90, 0.93, 1.0), titlefontsize=14,
         margin=4Plots.mm)
 
@@ -169,8 +176,10 @@ anim = @animate for k in frame_indices
     p
 end
 
-gif_path = joinpath(OUTDIR, "virtual_sp_firefly_swarm.gif")
-mp4_path = joinpath(OUTDIR, "virtual_sp_firefly_swarm.mp4")
+basename = LAYOUT_MODE == :periodic_strip ?
+    "periodic_strip_sp_firefly_swarm" : "virtual_sp_firefly_swarm"
+gif_path = joinpath(OUTDIR, basename * ".gif")
+mp4_path = joinpath(OUTDIR, basename * ".mp4")
 gif(anim, gif_path; fps=FPS)
 mp4(anim, mp4_path; fps=FPS)
 

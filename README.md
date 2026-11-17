@@ -89,7 +89,7 @@ time-lapse used to visualize the SP-like chorus--character dynamics:
 
 ```bash
 julia --project=. scripts/make_role_switching_phase_map.jl
-julia --project=. scripts/make_virtual_firefly_swarm_animation.jl
+FIREFLY_LAYOUT=periodic_strip julia --project=. scripts/make_virtual_firefly_swarm_animation.jl
 ```
 
 The robustness workflow holds the non-scanned quantities at the representative
@@ -97,7 +97,12 @@ case values and records the switching fraction
 `f_sw = switching_oscillator_count / N` over the `(kappa, tau0)` grid. The
 animation uses the same representative simulation, reconstructs flashes with
 the deposited detection rule, and colours oscillators continuously from chorus
-to character according to their measured character probability.
+to character according to their measured character probability. In the
+recommended `periodic_strip` layout, the horizontal coordinate is the
+oscillator index, with indices 100 and 1 identified by the periodic boundary;
+the randomized vertical coordinate supplies visual depth without destroying
+the neighbourhood structure of the nonlocally coupled ring. Omitting
+`FIREFLY_LAYOUT=periodic_strip` generates the alternative random-field layout.
 
 `CHIMERA_QUICK=1` performs a reduced validation intended for checking the
 workflow. Omit it for the full research calculation.
